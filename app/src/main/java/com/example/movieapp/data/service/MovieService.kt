@@ -2,8 +2,6 @@ package com.example.movieapp.data.service
 
 import com.example.movieapp.BuildConfig
 import com.example.movieapp.data.model.Movie
-import okhttp3.HttpUrl
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
