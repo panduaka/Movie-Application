@@ -1,11 +1,15 @@
 package com.example.movieapp.domain.model
 
+import com.google.gson.annotations.SerializedName
+
 interface Movie {
-    val id: String
-    val movieName: String
+    val movieTitle: String
 }
 
 data class MarvelMovie(
-    override val id: String,
-    override val movieName: String
+    override val movieTitle: String,
+    val year: Int,
+    val imdbID: String,
+    val type: String,
+    val poster: String
 ) : Movie
