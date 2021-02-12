@@ -4,5 +4,5 @@ import com.example.movieapp.cleanarch.Response
 import com.example.movieapp.domain.model.Movie
 
 interface MovieRepository {
-    suspend fun getMovies(): Response<List<Movie>>
+    suspend fun getMovies(searchKeyWord: String): Response<List<Movie>>
 }

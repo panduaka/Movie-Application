@@ -6,7 +6,7 @@ import com.example.movieapp.domain.repository.MovieRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single { MovieRepositoryImpl(get()) }
+    single { MovieRepositoryImpl(get()) as MovieRepository}
 }
 
 val serviceModule = module {

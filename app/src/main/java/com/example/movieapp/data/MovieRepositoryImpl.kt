@@ -6,9 +6,10 @@ import com.example.movieapp.domain.model.Movie
 import com.example.movieapp.domain.repository.MovieRepository
 
 class MovieRepositoryImpl(private val movieService: MovieService) : MovieRepository {
-    override suspend fun getMovies(): Response<List<Movie>> {
+    override suspend fun getMovies(searchKeyWord: String): Response<List<Movie>> {
         return try {
             val movies = movieService.getMovies("Iron")
+            movies.body()
             Response.Success(listOf())
         } catch (e: Exception) {
             Response.Error(e)

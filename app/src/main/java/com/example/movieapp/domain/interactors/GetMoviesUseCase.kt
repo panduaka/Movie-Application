@@ -17,7 +17,7 @@ class GetMoviesUseCase(private val movieRepository: MovieRepository) :
         val result = MutableLiveData<Result<List<Movie>>>()
         result.postValue(Result.Loading)
         launch {
-            val toPost = when (val response = movieRepository.getMovies()) {
+            val toPost = when (val response = movieRepository.getMovies("Iron")) {
                 is Response.Success -> Result.Success(response.data)
                 is Response.Error -> Result.Error(response.exception)
             }

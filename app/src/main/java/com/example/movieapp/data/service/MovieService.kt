@@ -1,7 +1,8 @@
 package com.example.movieapp.data.service
 
+import android.util.Log
 import com.example.movieapp.BuildConfig
-import com.example.movieapp.data.model.Movie
+import com.example.movieapp.data.model.MainObject
 import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -12,7 +13,7 @@ import retrofit2.http.Query
 interface MovieService {
 
     @GET("?type=movie")
-    suspend fun getMovies(@Query("s") title: String): Response<List<Movie>>
+    suspend fun getMovies(@Query("s") title: String): Response<MainObject>
 
     companion object {
         fun create(): MovieService {
@@ -35,9 +36,9 @@ interface MovieService {
                     .addQueryParameter("apikey", BuildConfig.API_KEY)
                     .build()
 
-                // Request customization: add request headers
                 val requestBuilder = original.newBuilder()
                     .url(url)
+                Log.d("URL", url.toString())
                 val request = requestBuilder.build()
                 chain.proceed(request)
             }
