@@ -6,10 +6,13 @@ import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface MovieService {
-    //Get function
-    suspend fun getMovies(): Response<List<Movie>>
+
+    @GET("?type=movie")
+    suspend fun getMovies(@Query("s") title: String): Response<List<Movie>>
 
     companion object {
         fun create(): MovieService {
