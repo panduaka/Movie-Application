@@ -12,7 +12,7 @@ class MovieRepositoryImpl(private val movieService: MovieService) : MovieReposit
 
     override suspend fun getMovies(searchKeyWord: String): Response<List<Movie>> {
         return try {
-            val movies = movieService.getMovies("Iron")
+            val movies = movieService.getMovies(searchKeyWord)
             if (movies.isSuccessful) {
                 Response.Success(searchMovies(movies = movies.body()?.search))
             } else {

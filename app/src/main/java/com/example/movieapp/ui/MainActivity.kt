@@ -1,10 +1,10 @@
 package com.example.movieapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.movieapp.R
+import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -19,11 +19,14 @@ class MainActivity : AppCompatActivity() {
         viewModel.run {
             onMoviesLoaded.observe(this@MainActivity, Observer {
                 it
-                Log.d("Activity","Loaded")
             })
         }
 
         //Wire Outputs
-        viewModel.onSearchMovies.postValue("Iron")
+        search_button.setOnClickListener {
+            val searchKeyWord = search_edittext.text.toString()
+            viewModel.onSearchMovies.postValue(searchKeyWord)
+        }
+
     }
 }
