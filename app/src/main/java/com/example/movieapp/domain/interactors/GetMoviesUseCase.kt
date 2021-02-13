@@ -5,19 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import com.example.movieapp.cleanarch.Response
 import com.example.movieapp.cleanarch.Result
 import com.example.movieapp.cleanarch.UseCase
+import com.example.movieapp.cleanarch.UseCaseWithParameter
 import com.example.movieapp.domain.model.Movie
 import com.example.movieapp.domain.repository.MovieRepository
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
 class GetMoviesUseCase(private val movieRepository: MovieRepository) :
-    UseCase<LiveData<Result<List<Movie>>>>, UseCaseScope {
+    UseCaseWithParameter<String, LiveData<Result<List<Movie>>>>, UseCaseScope {
 
-    override fun execute(): LiveData<Result<List<Movie>>> {
+    override fun execute(parameter: String): LiveData<Result<List<Movie>>> {
         val result = MutableLiveData<Result<List<Movie>>>()
         result.postValue(Result.Loading)
         launch {
-            val toPost = when (val response = movieRepository.getMovies("Iron")) {
+            val toPost = when (val response = movieRepository.getMovies(parameter)) {
                 is Response.Success -> Result.Success(response.data)
                 is Response.Error -> Result.Error(response.exception)
             }
