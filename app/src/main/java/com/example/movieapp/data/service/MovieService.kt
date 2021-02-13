@@ -3,6 +3,7 @@ package com.example.movieapp.data.service
 import android.util.Log
 import com.example.movieapp.BuildConfig
 import com.example.movieapp.data.model.MainObject
+import com.example.movieapp.data.model.MovieDetail
 import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -14,6 +15,9 @@ interface MovieService {
 
     @GET("?type=movie")
     suspend fun getMovies(@Query("s") title: String): Response<MainObject>
+
+    @GET("?plot=full")
+    suspend fun getMovieDetail(@Query("i") imdb: String): Response<MovieDetail>
 
     companion object {
         fun create(): MovieService {
