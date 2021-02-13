@@ -12,7 +12,7 @@ import com.example.movieapp.domain.model.MarvelMovie
 import com.example.movieapp.domain.model.Movie
 import com.example.movieapp.util.loadImage
 
-class MovieAdapter(val activity: Activity, private val onItemClickListener: ((String) -> Unit)) :
+class MovieAdapter(private val activity: Activity, private val onItemClickListener: ((String) -> Unit)) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     var movieItems = listOf<Movie>()

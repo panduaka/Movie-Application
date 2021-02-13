@@ -3,8 +3,9 @@ package com.example.movieapp.ui
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.example.movieapp.R
+import com.example.movieapp.util.loadImage
+import kotlinx.android.synthetic.main.activity_detail.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieDetailActivity : AppCompatActivity() {
@@ -18,8 +19,13 @@ class MovieDetailActivity : AppCompatActivity() {
         Log.d("MovieDetailActivity", imdb.toString())
 
         viewModel.run {
-            onMovieLoaded.observe(this@MovieDetailActivity, Observer {
-
+            onMovieLoaded.observe(this@MovieDetailActivity, {
+                mainCollapsing.title = it.title
+                it.poster?.let { _poster ->
+                    this@MovieDetailActivity.loadImage(_poster, R.drawable.ic_launcher_background, mainBackdrop, false)
+                }
+                gridTitle.text = it.title
+                year.text = "Released in ${it.year.toString()}"
             })
         }
         viewModel.imdb.postValue(imdb)
