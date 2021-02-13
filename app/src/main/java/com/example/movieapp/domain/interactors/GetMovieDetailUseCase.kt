@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.example.movieapp.cleanarch.Response
 import com.example.movieapp.cleanarch.Result
 import com.example.movieapp.cleanarch.UseCaseWithParameter
-import com.example.movieapp.domain.model.Movie
 import com.example.movieapp.domain.model.MovieDetailDomain
 import com.example.movieapp.domain.repository.MovieRepository
 import kotlinx.coroutines.cancel
