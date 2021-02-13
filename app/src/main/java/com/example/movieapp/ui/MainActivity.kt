@@ -1,5 +1,6 @@
 package com.example.movieapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -12,16 +13,25 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        const val IMDB = "IMDB"
+    }
 
     private val viewModel by viewModel<MainActivityViewModel>()
-    private val adapter = MovieAdapter(this)
+
+    private val adapter = MovieAdapter(this) {
+        val intent = Intent(this, MovieDetailActivity::class.java).apply {
+            putExtra(IMDB, it)
+        }
+        startActivity(intent)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val gridLayoutManager = StaggeredGridLayoutManager(
-           2,
+            2,
             StaggeredGridLayoutManager.VERTICAL
         )
         movieRecyclerView.layoutManager = gridLayoutManager

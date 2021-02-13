@@ -12,7 +12,8 @@ import com.example.movieapp.domain.model.MarvelMovie
 import com.example.movieapp.domain.model.Movie
 import com.example.movieapp.util.loadImage
 
-class MovieAdapter(val activity: Activity) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter(val activity: Activity, private val onItemClickListener: ((String) -> Unit)) :
+    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     var movieItems = listOf<Movie>()
         set(value) {
@@ -26,7 +27,9 @@ class MovieAdapter(val activity: Activity) : RecyclerView.Adapter<MovieAdapter.M
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bindData(movieItems[position])
+        holder.bindData(movieItems[position]) {
+            onItemClickListener.invoke(it)
+        }
     }
 
     override fun getItemCount(): Int = movieItems.count()
@@ -37,12 +40,13 @@ class MovieAdapter(val activity: Activity) : RecyclerView.Adapter<MovieAdapter.M
         private val movieYearTextView: TextView = itemView.findViewById(R.id.movieYear)
         private val moviePoster: ImageView = itemView.findViewById(R.id.posterImageView)
 
-        fun bindData(movie: Movie) {
+        fun bindData(movie: Movie, onItemClickListener: ((String) -> Unit)?) {
             movie as MarvelMovie
             titleTextView.text = movie.movieTitle
             movieDirectorTextView.text = movie.imdbID
             movieYearTextView.text = movie.year.toString()
             activity.loadImage(movie.poster, R.drawable.ic_launcher_background, moviePoster, false)
+            itemView.setOnClickListener { onItemClickListener?.invoke(movie.imdbID) }
         }
     }
 }

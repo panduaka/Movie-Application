@@ -30,8 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/text_protection_scrim_height"
                     android:layout_gravity="bottom"
-                    android:layout_alignBottom="@+id/main_backdrop"
-                    android:background="@drawable/photo_background_protection"/>
+                    android:layout_alignBottom="@+id/main_backdrop"/>
 
             <androidx.appcompat.widget.Toolbar
                     android:id="@+id/main_toolbar"
