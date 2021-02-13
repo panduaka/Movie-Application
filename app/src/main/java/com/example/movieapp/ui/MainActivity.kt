@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.movieapp.R
 import com.example.movieapp.domain.model.MarvelMovie
 import com.example.movieapp.domain.model.Movie
@@ -19,7 +20,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        movieRecyclerView.layoutManager = LinearLayoutManager(this)
+        val gridLayoutManager = StaggeredGridLayoutManager(
+           2,
+            StaggeredGridLayoutManager.VERTICAL
+        )
+        movieRecyclerView.layoutManager = gridLayoutManager
+
         movieRecyclerView.adapter = adapter
 
         //Wire inputs
