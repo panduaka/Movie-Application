@@ -31,6 +31,12 @@ class MovieDetailActivity : AppCompatActivity() {
                 genre.text = it.genre
                 actors.text = it.actors
                 plot.text = it.plot
+                val ratingO = it.ratings?.get(0)
+                rating.text = "${ratingO?.source }  ${ratingO?.value }"
+
+//                val imdbRating = it.ratings?.filter { it.source == "imdbRating" }
+
+
             })
         }
         viewModel.imdb.postValue(imdb)
