@@ -46,6 +46,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/card_padding_large"
                 android:paddingRight="@dimen/card_padding_large"
+                android:visibility="gone"
                 android:paddingBottom="4dp"
                 tools:text="santhosh"
                 android:maxLines="1"

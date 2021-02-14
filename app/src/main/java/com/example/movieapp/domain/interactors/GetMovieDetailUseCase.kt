@@ -13,11 +13,11 @@ import kotlinx.coroutines.launch
 class GetMovieDetailUseCase(private val movieRepository: MovieRepository) :
     UseCaseWithParameter<String, LiveData<Result<MovieDetailDomain>>>, UseCaseScope {
 
-    override fun execute(imdb: String): LiveData<Result<MovieDetailDomain>> {
+    override fun execute(parameter: String): LiveData<Result<MovieDetailDomain>> {
         val result = MutableLiveData<Result<MovieDetailDomain>>()
         result.postValue(Result.Loading)
         launch {
-            val toPost = when (val response = movieRepository.getMovieDetail(imdb)) {
+            val toPost = when (val response = movieRepository.getMovieDetail(parameter)) {
                 is Response.Success -> Result.Success(response.data)
                 is Response.Error -> Result.Error(response.exception)
             }

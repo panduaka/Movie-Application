@@ -20,7 +20,7 @@
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/search_edittext"
+                    android:id="@+id/searchEdittext"
                     android:inputType="textCapSentences"
                     android:hint="@string/search_hint"
                     android:imeOptions="actionSearch"/>
@@ -28,28 +28,49 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-                android:id="@+id/search_button"
+                android:id="@+id/searchButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/search_button" />
+                android:text="@string/search_button"/>
 
     </LinearLayout>
+
+    <TextView
+            android:id="@+id/labelMovieList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_list"
+            android:textSize="24sp"
+            android:visibility="gone"
+            style="@style/bold"/>
+
     <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <ProgressBar
-                android:id="@+id/progress_spinner"
+                android:id="@+id/progressSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:indeterminate="true"
-                android:visibility="gone" />
+                android:visibility="gone"/>
+
+        <TextView
+                android:id="@+id/noMoviesAvailableLabel"
+                android:layout_width="wrap_content"
+                android:text="@string/no_movies"
+                android:visibility="gone"
+                android:textSize="24sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/movieRecyclerView"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 tools:listitem="@layout/list_item_movie"
-                android:paddingBottom="28dp" />
+                android:paddingBottom="28dp"/>
     </FrameLayout>
 
 </LinearLayout>

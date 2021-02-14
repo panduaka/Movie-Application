@@ -2,6 +2,7 @@ package com.example.movieapp.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -38,13 +39,22 @@ class MainActivity : AppCompatActivity() {
         //Wire inputs
         viewModel.run {
             onMoviesLoaded.observe(this@MainActivity, Observer {
-                adapter.movieItems = it
+                progressSpinner.visibility = View.GONE
+                if (it.isEmpty()) {
+                    movieRecyclerView.visibility = View.GONE
+                    noMoviesAvailableLabel.visibility = View.VISIBLE
+                } else {
+                    adapter.movieItems = it
+                    movieRecyclerView.visibility = View.VISIBLE
+                    noMoviesAvailableLabel.visibility = View.GONE
+                }
             })
         }
 
         //Wire Outputs
-        search_button.setOnClickListener {
-            val searchKeyWord = search_edittext.text.toString()
+        searchButton.setOnClickListener {
+            val searchKeyWord = searchEdittext.text.toString()
+            progressSpinner.visibility = View.VISIBLE
             viewModel.onSearchMovies.postValue(searchKeyWord)
         }
     }
