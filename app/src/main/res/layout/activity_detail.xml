@@ -54,90 +54,97 @@
             <TextView
                     android:layout_column="0"
                     android:layout_row="0"
-                    tools:text="Title"/>
+                    style="@style/left_column_bold"
+                    android:text="@string/title"/>
             <TextView
                     android:layout_column="1"
                     android:layout_row="0"
-                    tools:text="@string/example_title"
+                    style="@style/right_column_normal"
+                    tools:text="Thor"
                     android:id="@+id/gridTitle"/>
+
             <TextView
-                    android:id="@+id/year"
+                    style="@style/left_column_bold"
                     android:layout_column="0"
                     android:layout_row="1"
-                    tools:text="@string/released"/>
-            <!--            <TextView-->
-            <!--                    style="@style/right_column_normal"-->
-            <!--                    app:layout_column="1"-->
-            <!--                    app:layout_row="1"-->
-            <!--                    tools:text="@string/example_release"-->
-            <!--                    android:id="@+id/grid_released"/>-->
-            <!--            <TextView-->
-            <!--                    style="@style/left_column_bold"-->
-            <!--                    android:text="@string/runtime"-->
-            <!--                    app:layout_column="0"-->
-            <!--                    app:layout_row="2"/>-->
-            <!--            <TextView-->
-            <!--                    style="@style/right_column_normal"-->
-            <!--                    tools:text="@string/example_runtime"-->
-            <!--                    app:layout_column="1"-->
-            <!--                    app:layout_row="2"-->
-            <!--                    android:id="@+id/grid_runtime"/>-->
-            <!--            <TextView-->
-            <!--                    android:text="@string/director"-->
-            <!--                    app:layout_column="0"-->
-            <!--                    app:layout_row="3"-->
-            <!--                    style="@style/left_column_bold"/>-->
-            <!--            <TextView-->
-            <!--                    style="@style/right_column_normal"-->
-            <!--                    tools:text="@string/example_director"-->
-            <!--                    app:layout_column="1"-->
-            <!--                    app:layout_row="3"-->
-            <!--                    android:id="@+id/grid_director"/>-->
-            <!--            <TextView-->
-            <!--                    style="@style/left_column_bold"-->
-            <!--                    app:layout_column="0"-->
-            <!--                    app:layout_row="4"-->
-            <!--                    android:text="@string/Genre"/>-->
-            <!--            <TextView-->
-            <!--                    style="@style/right_column_normal"-->
-            <!--                    app:layout_column="1"-->
-            <!--                    app:layout_row="4"-->
-            <!--                    tools:text="@string/example_genre"-->
-            <!--                    android:id="@+id/grid_genre"/>-->
-            <!--            <TextView-->
-            <!--                    style="@style/left_column_bold"-->
-            <!--                    android:text="@string/Writer"-->
-            <!--                    app:layout_column="0"-->
-            <!--                    app:layout_row="5"/>-->
-            <!--            <TextView-->
-            <!--                    style="@style/right_column_normal"-->
-            <!--                    app:layout_column="1"-->
-            <!--                    app:layout_row="5"-->
-            <!--                    android:layout_width="0dp"-->
-            <!--                    tools:text="@string/example_writer"-->
-            <!--                    android:id="@+id/grid_writers"/>-->
-            <!--            <TextView-->
-            <!--                    style="@style/left_column_bold"-->
-            <!--                    android:text="@string/actors"-->
-            <!--                    app:layout_column="0"-->
-            <!--                    app:layout_row="6"/>-->
-            <!--            <TextView-->
-            <!--                    style="@style/right_column_normal"-->
-            <!--                    app:layout_column="1"-->
-            <!--                    app:layout_row="6"-->
-            <!--                    tools:text="@string/example_actors"-->
-            <!--                    android:id="@+id/grid_actors"/>-->
-            <!--            <TextView-->
-            <!--                    app:layout_column="0"-->
-            <!--                    app:layout_row="7"-->
-            <!--                    style="@style/left_column_bold"-->
-            <!--                    android:text="@string/plot"/>-->
-            <!--            <TextView-->
-            <!--                    app:layout_column="1"-->
-            <!--                    app:layout_row="7"-->
-            <!--                    tools:text="@string/example_full_plot"-->
-            <!--                    style="@style/right_column_normal"-->
-            <!--                    android:id="@+id/grid_plot"/>-->
+                    android:text="@string/released"/>
+            <TextView
+                    style="@style/right_column_normal"
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    tools:text="@string/example_release"
+                    android:id="@+id/year"/>
+
+            <TextView
+                    style="@style/left_column_bold"
+                    android:text="@string/runtime"
+                    android:layout_column="0"
+                    android:layout_row="2"/>
+
+            <TextView
+                    style="@style/right_column_normal"
+                    tools:text="101 minutes"
+                    android:layout_column="1"
+                    android:layout_row="2"
+                    android:id="@+id/runtime"/>
+
+            <TextView
+                    android:text="@string/director"
+                    android:layout_column="0"
+                    android:layout_row="3"
+                    style="@style/left_column_bold"/>
+            <TextView
+                    style="@style/right_column_normal"
+                    tools:text="Director"
+                    android:layout_column="1"
+                    android:layout_row="3"
+                    android:id="@+id/director"/>
+            <TextView
+                    style="@style/left_column_bold"
+                    android:layout_column="0"
+                    android:layout_row="4"
+                    android:text="@string/Genre"/>
+            <TextView
+                    style="@style/right_column_normal"
+                    android:layout_column="1"
+                    android:layout_row="4"
+                    tools:text="Animation"
+                    android:id="@+id/genre"/>
+
+            <TextView
+                    style="@style/left_column_bold"
+                    android:text="@string/actors"
+                    android:layout_column="0"
+                    android:layout_row="6"/>
+            <TextView
+                    style="@style/right_column_normal"
+                    android:layout_column="1"
+                    android:layout_row="6"
+                    tools:text="Actors"
+                    android:id="@+id/actors"/>
+            <TextView
+                    android:layout_column="0"
+                    android:layout_row="7"
+                    style="@style/left_column_bold"
+                    android:text="@string/plot"/>
+            <TextView
+                    android:layout_column="1"
+                    android:layout_row="7"
+                    tools:text="Plot"
+                    style="@style/right_column_normal"
+                    android:id="@+id/plot"/>
+
+            <TextView
+                    android:layout_column="0"
+                    android:layout_row="8"
+                    style="@style/left_column_bold"
+                    android:text="@string/rating"/>
+            <TextView
+                    android:layout_column="1"
+                    android:layout_row="8"
+                    tools:text="Rating"
+                    style="@style/right_column_normal"
+                    android:id="@+id/rating"/>
         </GridLayout>
 
     </androidx.core.widget.NestedScrollView>

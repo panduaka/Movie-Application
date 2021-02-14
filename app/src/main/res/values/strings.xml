@@ -4,6 +4,12 @@
     <string name="search_button">Search</string>
     <string name="title">Title</string>
     <string name="example_title">example title</string>
-    <string name="released">2010</string>
+    <string name="released">Released</string>
     <string name="example_release">2010</string>
+    <string name="runtime">Duration</string>
+    <string name="director">Director</string>
+    <string name="Genre">Genre</string>
+    <string name="actors">Actors</string>
+    <string name="plot">Plot</string>
+    <string name="rating">Rating</string>
 </resources>

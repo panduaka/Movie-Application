@@ -26,6 +26,11 @@ class MovieDetailActivity : AppCompatActivity() {
                 }
                 gridTitle.text = it.title
                 year.text = "Released in ${it.year.toString()}"
+                runtime.text = it.runtime
+                director.text = it.director
+                genre.text = it.genre
+                actors.text = it.actors
+                plot.text = it.plot
             })
         }
         viewModel.imdb.postValue(imdb)
