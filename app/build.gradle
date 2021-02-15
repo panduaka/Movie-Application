@@ -75,4 +75,7 @@ dependencies {
     //Mockk
     def mockk_version = "1.10.6"
     testImplementation "io.mockk:mockk:$mockk_version"
+
+    def mock_web_server = "4.2.1"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mock_web_server"
 }

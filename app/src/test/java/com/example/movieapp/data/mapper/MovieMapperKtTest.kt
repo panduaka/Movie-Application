@@ -12,7 +12,7 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-class _MovieMapperKtTest {
+class MovieMapperKtTest {
     @Test
     fun convertMovieListToMarvelMovieList() {
         //Given
